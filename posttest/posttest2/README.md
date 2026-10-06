@@ -4,11 +4,9 @@
 
 **NIM:** 2509106092
 
-**Kelas:** C1 '25
+**Kelas:** C1 2025
 
 **Program Studi:** Informatika
-
-**Universitas Mulawarman**
 
 ## 1. Deskripsi
 
@@ -145,8 +143,10 @@ classDiagram
     KebabCendana o-- Pegawai : Aggregation
     MesinAbsensi ..> Pegawai : Association
     GajiPegawai *-- RincianGaji : Composition
-
 ```
+
+<details>
+<summary><b>Klik di sini jika ingin melihat UML Diagram versi Teks (ASCII)</b></summary>
 
 ```text
                ┌──────────────────────────────┐
@@ -223,6 +223,7 @@ classDiagram
 │ + gaji_bersih : float        │
 └──────────────────────────────┘
 ```
+</details>
 
 ## 6. Hasil Run
 
