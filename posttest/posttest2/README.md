@@ -1,12 +1,14 @@
 # Posttest 2 PBO - Manajemen Pegawai Kebab Cendana
 
-**Nama:** Antung Hissyam  
-**NIM:** 2509106092  
-**Kelas:** C1 '25  
-**Program Studi:** Informatika  
-**Universitas Mulawarman**
+**Nama:** Antung Hissyam
 
----
+**NIM:** 2509106092
+
+**Kelas:** C1 '25
+
+**Program Studi:** Informatika
+
+**Universitas Mulawarman**
 
 ## 1. Deskripsi
 
@@ -17,7 +19,7 @@ Relasi UML yang diterapkan meliputi Asosiasi, Agregasi, dan Komposisi. Sedangkan
 ## 2. Class yang Digunakan
 
 | Class | Fungsi | 
-| :--- | :--- | 
+| ----- | ----- | 
 | `Pegawai` | Superclass; menyimpan data dan perilaku dasar pegawai. | 
 | `Kasir` | Subclass; merepresentasikan pegawai kasir. | 
 | `PegawaiDapur` | Subclass; merepresentasikan pegawai bagian dapur. | 
@@ -31,21 +33,27 @@ Relasi UML yang diterapkan meliputi Asosiasi, Agregasi, dan Komposisi. Sedangkan
 Program ini memenuhi syarat penerapan Relasi UML dengan rincian berikut:
 
 ### A. Asosiasi
+
 `MesinAbsensi` memiliki hubungan "menggunakan" dengan `Pegawai`. Objek `Pegawai` dikirim sebagai parameter pada method `proses_absensi()` tanpa membuat `Pegawai` menjadi bagian dari `MesinAbsensi`.
+
 ```python
 def proses_absensi(self, pegawai, pin):
     print(f"Absensi {pegawai.nama} melalui {self.id_mesin}")
 ```
 
 ### B. Agregasi
+
 `KebabCendana` memiliki hubungan "memiliki kumpulan" `Pegawai`. Objek pegawai dibuat di luar `KebabCendana`, kemudian dimasukkan ke dalam `_daftar_pegawai`. Jika objek cabang dihapus, objek pegawai tetap hidup/eksis.
+
 ```python
 def tambah_pegawai(self, pegawai):
     self._daftar_pegawai.append(pegawai)
 ```
 
 ### C. Komposisi
+
 `GajiPegawai` memiliki hubungan "terdiri dari" yang sangat kuat dengan `RincianGaji`. Objek `RincianGaji` diinstansiasi secara langsung di dalam *constructor* `GajiPegawai` sehingga siklus hidupnya saling terikat.
+
 ```python
 def __init__(self, pegawai, hari_hadir, gaji_harian, pajak=0.05):
     self._rincian = RincianGaji(hari_hadir, gaji_harian, pajak)
@@ -55,24 +63,29 @@ def __init__(self, pegawai, hari_hadir, gaji_harian, pajak=0.05):
 
 Program ini memenuhi seluruh poin wajib inheritance:
 
-1. **Superclass & Subclass:** Memiliki 1 Superclass (`Pegawai`) dan 2 Subclass (`Kasir`, `PegawaiDapur`).
-2. **Penggunaan `super()`:** Kedua subclass menggunakan `super().__init__(...)` untuk memanggil konstruktor milik parent class guna menginisialisasi atribut dasar.
+1. **Superclass & Subclass:** 
+   Memiliki 1 Superclass (`Pegawai`) dan 2 Subclass (`Kasir`, `PegawaiDapur`).
+
+2. **Penggunaan `super()`:** 
+   Kedua subclass menggunakan `super().__init__(...)` untuk memanggil konstruktor milik parent class guna menginisialisasi atribut dasar.
    ```python
    class Kasir(Pegawai):
        def __init__(self, nama, pin, metode_pembayaran):
            super().__init__(nama, "Kasir", pin)
    ```
+
 3. **Atribut Tambahan Spesifik:**
    * Subclass `Kasir` memiliki atribut tambahan `metode_pembayaran`.
    * Subclass `PegawaiDapur` memiliki atribut tambahan `spesialisasi_menu`.
-4. **Method Overriding:** Method `profil_pegawai()` dari superclass di-override pada subclass `Kasir` dengan menambahkan informasi "Metode Pembayaran".
+
+4. **Method Overriding:**
+   * Method `profil_pegawai()` dari superclass di-override pada subclass `Kasir` dengan menambahkan informasi "Metode Pembayaran".
+
 5. **Tingkat Akses (Protected & Private):**
    * **Protected (`_nama`, `_jabatan`):** Digunakan agar data ini dapat diakses langsung oleh subclass (terlihat pada method overridden).
    * **Private (`__pin_absen`):** Digunakan untuk data rahasia PIN, yang hanya bisa dimodifikasi melalui mekanisme *setter* (property) di superclass.
 
 ## 5. UML Class Diagram
-
-> **Catatan:** Diagram di bawah ini menggunakan **Mermaid** agar otomatis terender rapi di platform seperti GitHub. 
 
 ```mermaid
 classDiagram
@@ -132,10 +145,8 @@ classDiagram
     KebabCendana o-- Pegawai : Aggregation
     MesinAbsensi ..> Pegawai : Association
     GajiPegawai *-- RincianGaji : Composition
-```
 
-<details>
-<summary><b>Klik di sini jika ingin melihat UML Diagram versi Teks (ASCII)</b></summary>
+```
 
 ```text
                ┌──────────────────────────────┐
@@ -212,7 +223,6 @@ classDiagram
 │ + gaji_bersih : float        │
 └──────────────────────────────┘
 ```
-</details>
 
 ## 6. Hasil Run
 
