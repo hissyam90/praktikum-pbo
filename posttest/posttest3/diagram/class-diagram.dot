@@ -1,0 +1,173 @@
+digraph Posttest3 {
+    graph [
+        label="UML Class Diagram — Aplikasi Pendataan Pegawai dan Manajemen Shift Kerja"
+        labelloc="t"
+        labeljust="c"
+        fontname="DejaVu Sans"
+        fontsize=20
+        rankdir=TB
+        splines=ortho
+        nodesep=0.45
+        ranksep=0.75
+        pad=0.25
+        bgcolor="white"
+    ]
+    node [shape=plain, fontname="DejaVu Sans", fontsize=10]
+    edge [fontname="DejaVu Sans", fontsize=9, color="#414B57", arrowsize=0.8]
+
+    Pegawai [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#30465C">
+        <TR><TD BGCOLOR="#DCE8F3"><B><I>Pegawai (ABC)</I></B></TD></TR>
+        <TR><TD ALIGN="LEFT"># _nama, _jabatan, _gaji_harian</TD></TR>
+        <TR><TD ALIGN="LEFT">- __pin_absen</TD></TR>
+        <TR><TD ALIGN="LEFT">+ profil_pegawai() : abstract</TD></TR>
+        <TR><TD ALIGN="LEFT">+ jalankan_tugas() : abstract</TD></TR>
+        <TR><TD ALIGN="LEFT">+ hitung_gaji(hari) : abstract</TD></TR>
+        <TR><TD ALIGN="LEFT">+ mulai_shift(shift)</TD></TR>
+      </TABLE>>]
+
+    Kasir [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#E7F0E6"><B>Kasir</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ metode_pembayaran</TD></TR>
+        <TR><TD ALIGN="LEFT">+ transaksi_per_hari</TD></TR>
+        <TR><TD ALIGN="LEFT">+ profil_pegawai()</TD></TR>
+        <TR><TD ALIGN="LEFT">+ layani_pembayaran()</TD></TR>
+      </TABLE>>]
+    PegawaiDapur [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#E7F0E6"><B>PegawaiDapur</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ spesialisasi_menu</TD></TR>
+        <TR><TD ALIGN="LEFT">+ tunjangan_keahlian_harian</TD></TR>
+        <TR><TD ALIGN="LEFT">+ profil_pegawai()</TD></TR>
+        <TR><TD ALIGN="LEFT">+ siapkan_pesanan()</TD></TR>
+      </TABLE>>]
+    SupervisorShift [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#E7F0E6"><B>SupervisorShift</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ tanggung_jawab</TD></TR>
+        <TR><TD ALIGN="LEFT">+ tunjangan_bulanan</TD></TR>
+        <TR><TD ALIGN="LEFT">+ profil_pegawai()</TD></TR>
+        <TR><TD ALIGN="LEFT">+ awasi_operasional()</TD></TR>
+      </TABLE>>]
+
+    PelaksanaPembayaran [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#F7EDD9"><B><I>PelaksanaPembayaran (ABC)</I></B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ layani_pembayaran() : abstract</TD></TR>
+      </TABLE>>]
+    PenyiapMenu [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#F7EDD9"><B><I>PenyiapMenu (ABC)</I></B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ siapkan_pesanan() : abstract</TD></TR>
+      </TABLE>>]
+    PengawasOperasional [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#F7EDD9"><B><I>PengawasOperasional (ABC)</I></B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ awasi_operasional() : abstract</TD></TR>
+      </TABLE>>]
+
+    KebabCendana [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#DCE8F3"><B>KebabCendana</B></TD></TR>
+        <TR><TD ALIGN="LEFT">- _daftar_pegawai</TD></TR>
+        <TR><TD ALIGN="LEFT">+ tambah_pegawai()</TD></TR>
+        <TR><TD ALIGN="LEFT">+ cari_pegawai()</TD></TR>
+        <TR><TD ALIGN="LEFT">+ keluarkan_pegawai()</TD></TR>
+      </TABLE>>]
+    MesinAbsensi [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#DCE8F3"><B>MesinAbsensi</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ id_mesin, lokasi</TD></TR>
+        <TR><TD ALIGN="LEFT">- _log_absensi</TD></TR>
+        <TR><TD ALIGN="LEFT">+ proses_absensi(pegawai, pin)</TD></TR>
+      </TABLE>>]
+    ShiftKerja [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#DCE8F3"><B>ShiftKerja</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ tanggal, jenis_shift, kapasitas</TD></TR>
+        <TR><TD ALIGN="LEFT">- __penugasan</TD></TR>
+        <TR><TD ALIGN="LEFT">+ tambah_pegawai()</TD></TR>
+        <TR><TD ALIGN="LEFT">+ tandai_tugas_selesai()</TD></TR>
+      </TABLE>>]
+    PenugasanShift [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#F7EDD9"><B>PenugasanShift</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ pegawai</TD></TR>
+        <TR><TD ALIGN="LEFT">- _daftar_tugas</TD></TR>
+        <TR><TD ALIGN="LEFT">+ tandai_selesai()</TD></TR>
+      </TABLE>>]
+    GajiPegawai [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#DCE8F3"><B>GajiPegawai</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ pegawai, hari_kerja</TD></TR>
+        <TR><TD ALIGN="LEFT">- _rincian</TD></TR>
+        <TR><TD ALIGN="LEFT">+ cetak_slip_gaji()</TD></TR>
+        <TR><TD ALIGN="LEFT">+ bayarkan()</TD></TR>
+      </TABLE>>]
+    RincianGaji [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#F7EDD9"><B>RincianGaji</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ gaji_kotor</TD></TR>
+        <TR><TD ALIGN="LEFT">+ potongan_pajak, potongan_lain</TD></TR>
+        <TR><TD ALIGN="LEFT">+ gaji_bersih</TD></TR>
+      </TABLE>>]
+
+    LaporanShift [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#EAE5F4"><B>LaporanShift</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ ringkasan()</TD></TR>
+      </TABLE>>]
+    NotifikasiJadwal [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#EAE5F4"><B>NotifikasiJadwal</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ ringkasan()</TD></TR>
+      </TABLE>>]
+    MemilikiRingkasan [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#6D5B8C">
+        <TR><TD BGCOLOR="#EEE9F7"><B><I>MemilikiRingkasan (Protocol)</I></B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ ringkasan() : str</TD></TR>
+      </TABLE>>]
+    RekapJamKerja [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#DCE8F3"><B>RekapJamKerja</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ nama_pegawai, total_jam</TD></TR>
+        <TR><TD ALIGN="LEFT">+ __add__(), __str__()</TD></TR>
+      </TABLE>>]
+    AplikasiKebabCendana [label=<
+      <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD BGCOLOR="#DCE8F3"><B>AplikasiKebabCendana</B></TD></TR>
+        <TR><TD ALIGN="LEFT">+ cabang, mesin_absensi, daftar_shift</TD></TR>
+        <TR><TD ALIGN="LEFT">+ tambah_pegawai(), buat_shift()</TD></TR>
+        <TR><TD ALIGN="LEFT">+ demonstrasi_polimorfisme()</TD></TR>
+      </TABLE>>]
+
+    { rank=same; Kasir; PegawaiDapur; SupervisorShift }
+    { rank=same; PelaksanaPembayaran; PenyiapMenu; PengawasOperasional }
+    { rank=same; KebabCendana; MesinAbsensi; ShiftKerja; GajiPegawai }
+    { rank=same; PenugasanShift; RincianGaji }
+    { rank=same; LaporanShift; NotifikasiJadwal; MemilikiRingkasan; RekapJamKerja; AplikasiKebabCendana }
+
+    Kasir -> Pegawai [arrowhead=empty, label="inheritance"]
+    PegawaiDapur -> Pegawai [arrowhead=empty, label="inheritance"]
+    SupervisorShift -> Pegawai [arrowhead=empty, label="inheritance"]
+    Kasir -> PelaksanaPembayaran [style=dashed, arrowhead=empty, label="implementasi"]
+    PegawaiDapur -> PenyiapMenu [style=dashed, arrowhead=empty, label="implementasi"]
+    SupervisorShift -> PengawasOperasional [style=dashed, arrowhead=empty, label="implementasi"]
+
+    KebabCendana -> Pegawai [dir=both, arrowtail=odiamond, arrowhead=none, label="agregasi 0..*"]
+    MesinAbsensi -> Pegawai [style=dashed, arrowhead=vee, label="asosiasi"]
+    ShiftKerja -> PenugasanShift [dir=both, arrowtail=diamond, arrowhead=none, label="komposisi 1..*"]
+    PenugasanShift -> Pegawai [arrowhead=vee, label="mengacu pada"]
+    GajiPegawai -> RincianGaji [dir=both, arrowtail=diamond, arrowhead=none, label="komposisi 1"]
+    LaporanShift -> ShiftKerja [style=dashed, arrowhead=vee, label="meringkas"]
+    LaporanShift -> MemilikiRingkasan [style=dotted, arrowhead=none, label="memiliki method"]
+    NotifikasiJadwal -> MemilikiRingkasan [style=dotted, arrowhead=none, label="memiliki method"]
+    AplikasiKebabCendana -> KebabCendana [style=dashed, arrowhead=vee, label="mengelola"]
+    AplikasiKebabCendana -> MesinAbsensi [style=dashed, arrowhead=vee, label="menggunakan"]
+    AplikasiKebabCendana -> ShiftKerja [style=dashed, arrowhead=vee, label="mengelola jadwal"]
+
+    note [shape=note, fontname="DejaVu Sans", fontsize=9, label="Duck typing: LaporanShift dan NotifikasiJadwal tidak saling mewarisi.\nKeduanya dipakai oleh tampilkan_ringkasan() karena sama-sama memiliki ringkasan()."]
+    { rank=same; note; }
+    LaporanShift -> note [style=invis]
+}

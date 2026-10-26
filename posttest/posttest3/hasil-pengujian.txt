@@ -1,0 +1,26 @@
+test_abstract_class_cannot_be_instantiated (test_posttest3.TestPosttest3.test_abstract_class_cannot_be_instantiated) ... ok
+test_aggregation_branch_does_not_own_employee_lifecycle (test_posttest3.TestPosttest3.test_aggregation_branch_does_not_own_employee_lifecycle) ... ok
+test_application_has_seed_data_shifts_and_demos (test_posttest3.TestPosttest3.test_application_has_seed_data_shifts_and_demos) ... ok
+test_association_attendance_success_and_failure (test_posttest3.TestPosttest3.test_association_attendance_success_and_failure) ... ok
+test_class_and_static_methods_from_previous_posttests_remain (test_posttest3.TestPosttest3.test_class_and_static_methods_from_previous_posttests_remain) ... ok
+test_composition_shift_creates_private_assignments_and_enforces_rules (test_posttest3.TestPosttest3.test_composition_shift_creates_private_assignments_and_enforces_rules) ... ok
+test_duck_typing_with_unrelated_classes (test_posttest3.TestPosttest3.test_duck_typing_with_unrelated_classes) ... ok
+test_employee_name_and_details_have_validation (test_posttest3.TestPosttest3.test_employee_name_and_details_have_validation) ... ok
+test_every_employee_subclass_implements_abstract_behaviour (test_posttest3.TestPosttest3.test_every_employee_subclass_implements_abstract_behaviour) ... ok
+test_invalid_shift_date_and_type_are_rejected (test_posttest3.TestPosttest3.test_invalid_shift_date_and_type_are_rejected) ... ok
+test_method_overriding_is_different_for_subclasses (test_posttest3.TestPosttest3.test_method_overriding_is_different_for_subclasses) ... ok
+test_operator_overloading_adds_hours_without_mutating_inputs (test_posttest3.TestPosttest3.test_operator_overloading_adds_hours_without_mutating_inputs) ... ok
+test_payroll_composes_salary_details_and_calculates_tax (test_posttest3.TestPosttest3.test_payroll_composes_salary_details_and_calculates_tax) ... ok
+test_payroll_payment_is_recorded_only_once (test_posttest3.TestPosttest3.test_payroll_payment_is_recorded_only_once) ... ok
+test_pin_validation_and_private_attribute (test_posttest3.TestPosttest3.test_pin_validation_and_private_attribute) ... ok
+test_polymorphic_salary_calculation (test_posttest3.TestPosttest3.test_polymorphic_salary_calculation) ... ok
+test_protected_attributes_and_unique_subclass_attributes (test_posttest3.TestPosttest3.test_protected_attributes_and_unique_subclass_attributes) ... ok
+test_role_interfaces_are_separated_by_capability (test_posttest3.TestPosttest3.test_role_interfaces_are_separated_by_capability) ... ok
+test_salary_detail_rejects_invalid_deductions (test_posttest3.TestPosttest3.test_salary_detail_rejects_invalid_deductions) ... ok
+test_salary_rejects_invalid_working_days (test_posttest3.TestPosttest3.test_salary_rejects_invalid_working_days) ... ok
+test_shared_concrete_method_requires_assignment (test_posttest3.TestPosttest3.test_shared_concrete_method_requires_assignment) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.001s
+
+OK

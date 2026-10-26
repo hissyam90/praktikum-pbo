@@ -1,0 +1,33 @@
+Kebab Cendana Pusat
+Pendataan pegawai dan shift
+
+Pegawai tidak bisa dibuat langsung karena class tersebut abstrak (TypeError).
+
+Daftar pegawai
+PGW-001 | Kasir: Antung Hissyam | Metode: Cash / QRIS | Status: Aktif
+Kasir Antung Hissyam melayani pelanggan dan memproses pembayaran.
+Gaji kotor 20 hari: IDR 2,350,000
+PGW-002 | Dapur: Dita | Spesialisasi: Kebab Original | Status: Aktif
+Pegawai dapur Dita menyiapkan menu Kebab Original.
+Gaji kotor 20 hari: IDR 2,500,000
+PGW-003 | Supervisor: Rafi | Tanggung jawab: Pengawasan operasional dan pembagian tugas | Status: Aktif
+Supervisor Rafi mengawasi shift dan mengevaluasi pekerjaan tim.
+Gaji kotor 20 hari: IDR 3,100,000
+
+Jadwal dan pemberitahuan:
+Laporan: 2 shift, 5 penugasan pegawai.
+Notifikasi untuk Antung Hissyam: Shift Pagi dimulai pukul 08:00.
+
+Jam kerja:
+Antung Hissyam: 8 jam
+Dita: 7 jam
+Antung Hissyam + Dita: 15 jam
+
+Absensi Antung Hissyam berhasil.
+
+Tugas pada shift pagi:
+Shift Pagi | 2026-10-26 | 08:00-14:00
+Kapasitas: 3/8
+- Antung Hissyam: Membuka kas, Melayani pembayaran [Belum selesai]
+- Dita: Menyiapkan bahan, Menyiapkan pesanan [Belum selesai]
+- Rafi: Memeriksa operasional [Belum selesai]
