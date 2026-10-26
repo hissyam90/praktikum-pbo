@@ -7,7 +7,7 @@
 
 ## 1. Deskripsi
 
-Posttest 3 ini melanjutkan program **Manajemen Pegawai Kebab Cendana** pada Posttest 1 dan Posttest 2. Konsep sebelumnya tetap dipakai—data pegawai, PIN absensi, subclass `Kasir` dan `PegawaiDapur`, cabang, shift, mesin absensi, serta perhitungan gaji—kemudian dikembangkan dengan abstraksi menggunakan `ABC`, polimorfisme, duck typing, operator overloading, dan pemisahan tanggung jawab class.
+Posttest 3 ini melanjutkan program **Manajemen Pegawai Kebab Cendana** pada Posttest 1 dan Posttest 2. Konsep sebelumnya tetap dipakai data pegawai, PIN absensi, subclass `Kasir` dan `PegawaiDapur`, cabang, shift, mesin absensi, serta perhitungan gaji kemudian dikembangkan dengan abstraksi menggunakan `ABC`, polimorfisme, duck typing, operator overloading, dan pemisahan tanggung jawab class.
 
 Program dapat dijalankan sebagai aplikasi terminal interaktif. Pengguna dapat melihat dan menambahkan pegawai, membuat jadwal shift, menugaskan pegawai, memproses absensi, menghitung gaji, serta melihat hasil demonstrasi konsep PBO. Data disimpan selama program berjalan dan belum menggunakan database.
 
@@ -210,19 +210,19 @@ Sumber diagram tersedia pada `diagram/class-diagram.dot`.
 
 `Kasir`, `PegawaiDapur`, dan `SupervisorShift` mewarisi `Pegawai`. Masing-masing juga mengimplementasikan kontrak peran spesifiknya, yaitu `PelaksanaPembayaran`, `PenyiapMenu`, atau `PengawasOperasional`.
 
-### B. Asosiasi — `MesinAbsensi` dengan `Pegawai`
+### B. Asosiasi: `MesinAbsensi` dengan `Pegawai`
 
 Object pegawai diberikan ke method `MesinAbsensi.proses_absensi(pegawai, pin)`. Mesin menggunakan data pegawai untuk memvalidasi PIN, lalu menyimpan detail hasil absensi. Mesin tidak membuat atau mengelola siklus hidup object pegawai.
 
-### C. Agregasi — `KebabCendana` dengan `Pegawai`
+### C. Agregasi: `KebabCendana` dengan `Pegawai`
 
 Pegawai dibuat di luar class cabang, lalu ditambahkan melalui `tambah_pegawai()`. Saat pegawai dikeluarkan dari cabang, object pegawai yang sama tetap dapat dipakai oleh kode pemanggil. Daftar cabang hanya menjadi wadah pengelolaan pegawai aktif.
 
-### D. Komposisi — `ShiftKerja` dengan `PenugasanShift`
+### D. Komposisi: `ShiftKerja` dengan `PenugasanShift`
 
 Object `PenugasanShift` dibuat di dalam `ShiftKerja.tambah_pegawai()`, disimpan pada atribut private `__penugasan`, dan tidak diberikan keluar sebagai object komponen mentah. Properti yang ditampilkan ke luar hanya berupa snapshot data. Saat penugasan dihapus dari shift, komponen tersebut dilepas dari pemiliknya.
 
-### E. Komposisi — `GajiPegawai` dengan `RincianGaji`
+### E. Komposisi: `GajiPegawai` dengan `RincianGaji`
 
 Object `RincianGaji` dibuat oleh constructor `GajiPegawai` untuk menyimpan gaji kotor, pajak, potongan tambahan, dan gaji bersih. `GajiPegawai` memakai rincian itu untuk mencetak slip dan memproses pembayaran.
 
@@ -255,4 +255,4 @@ Jalankan `python kebab_pt3.py --demo` untuk menampilkan bukti singkat semua kons
 
 ## 15. Catatan
 
-Program menggunakan data dalam memori. Data pegawai, jadwal, dan log absensi akan kembali ke data awal ketika aplikasi ditutup. Database dan autentikasi pengguna belum termasuk pada versi praktikum ini.
+Program menggunakan data dalam memori. Data pegawai, jadwal, dan log absensi akan kembali ke data awal ketika aplikasi ditutup. Database dan autentikasi pengguna belum termasuk pada versi ini.
